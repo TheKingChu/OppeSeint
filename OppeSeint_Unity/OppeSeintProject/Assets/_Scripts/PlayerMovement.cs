@@ -14,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 startTouchPosition;
     private Vector2 direction;
     private SpriteRenderer spriteRenderer;
+    public SpriteRenderer gunRenderer;
     private bool isDragging = false;
+
+    public Vector2 gunOffset = new Vector2(0.5f, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -66,12 +69,21 @@ public class PlayerMovement : MonoBehaviour
             if(direction.x != 0)
             {
                 spriteRenderer.flipX = direction.x < 0;
+                gunRenderer.flipX = direction.x < 0;
+                UpdateGunPosition();
             }
         }
         else
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
+    }
+
+    private void UpdateGunPosition()
+    {
+        Vector2 playerPos = transform.position;
+        Vector2 gunPos = playerPos + (direction.x < 0 ? -gunOffset : gunOffset);
+        gunRenderer.transform.position = new Vector3(gunPos.x, gunPos.y, gunRenderer.transform.position.z);
     }
 
     public void JumpButton()
