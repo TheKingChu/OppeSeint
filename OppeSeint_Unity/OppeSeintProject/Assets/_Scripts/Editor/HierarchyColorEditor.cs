@@ -9,6 +9,8 @@ public class HierarchyColorEditor
     private static readonly Color enemyColor = new Color(0.5f, 0, 0, 1);
     private static readonly Color playerColor = new Color(0, 0.5f, 0, 1);
     private static readonly Color canvasColor = new Color(0.7f, 0.3f, 0.5f, 1);
+    private static readonly Color levelColor = new Color(0, 0.2f, 0.5f, 1);
+
     //static constructor to add the event handler
     static HierarchyColorEditor()
     {
@@ -49,6 +51,8 @@ public class HierarchyColorEditor
                 return playerColor;
             case "Canvas":
                 return canvasColor;
+            case "LevelLoader":
+                return levelColor;
             default: 
                 return null;
         }

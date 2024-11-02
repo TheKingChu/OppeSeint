@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Enemy
   - Canvas
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
