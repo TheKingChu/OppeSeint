@@ -1,18 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-public class HierarchyColorEditor : MonoBehaviour
+[InitializeOnLoad]
+public class HierarchyColorEditor
 {
-    // Start is called before the first frame update
-    void Start()
+    private static readonly Color enemyColor = new Color(0.5f, 0, 0, 1);
+    private static readonly Color playerColor = new Color(0, 0.5f, 0, 1);
+    private static readonly Color canvasColor = new Color(0.7f, 0.3f, 0.5f, 1);
+    //static constructor to add the event handler
+    static HierarchyColorEditor()
     {
-        
+        EditorApplication.hierarchyWindowItemOnGUI += OnHierarchyWindowItemOnGUI;
     }
 
-    // Update is called once per frame
-    void Update()
+    //draw colors in the hierarchy
+    private static void OnHierarchyWindowItemOnGUI(int instanceID, Rect selectionRect)
     {
-        
+        GameObject obj = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
+
+        if (obj != null)
+        {
+            //color based on tag
+            Color? colorToUse = GetColorByTag(obj.tag);
+
+            if (colorToUse.HasValue)
+            {
+                //apply color
+                EditorGUI.DrawRect(selectionRect, colorToUse.Value);
+                //ensure name is readable in new color
+                EditorGUI.LabelField(selectionRect, obj.name, new GUIStyle()
+                {
+                    normal = new GUIStyleState() { textColor = Color.white }
+                });   
+            }
+        }
+    }
+
+    //return a color based on the tag assigned
+    private static Color? GetColorByTag(string tag)
+    {
+        switch (tag)
+        {
+            case "Enemy":
+                return enemyColor;
+            case "Player":
+                return playerColor;
+            case "Canvas":
+                return canvasColor;
+            default: 
+                return null;
+        }
     }
 }
