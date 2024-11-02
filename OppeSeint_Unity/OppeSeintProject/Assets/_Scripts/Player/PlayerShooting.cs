@@ -10,6 +10,13 @@ public class PlayerShooting : MonoBehaviour
     public SpriteRenderer gunRenderer;
 
     private float lastShootTime;
+    private float defaultShootCooldown;
+    private Coroutine powerUpCoroutine;
+
+    private void Start()
+    {
+        defaultShootCooldown = shootCooldown;
+    }
 
     public void ShootButton()
     {
@@ -46,5 +53,21 @@ public class PlayerShooting : MonoBehaviour
             shootPoint.localPosition = new Vector3(0.5f, 0, 0); // Right orientation
             shootPoint.localRotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    public void ActivatePowerUp(float newCooldown, float duration)
+    {
+        if(powerUpCoroutine != null)
+        {
+            StopCoroutine(powerUpCoroutine);
+        }
+        powerUpCoroutine = StartCoroutine(FasterShooting(newCooldown, duration));
+    }
+
+    private IEnumerator FasterShooting(float newCooldown, float duration)
+    {
+        shootCooldown = newCooldown;
+        yield return new WaitForSeconds(duration);
+        shootCooldown = defaultShootCooldown;
     }
 }
