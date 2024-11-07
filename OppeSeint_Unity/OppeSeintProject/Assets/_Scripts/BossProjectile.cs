@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossProjectile : MonoBehaviour
 {
-    public int damageToPlayer = 1;
+    public int damageToPlayer = 2;
 
     public Transform bossTransform;
     [SerializeField] private float floatRadius = 2f;

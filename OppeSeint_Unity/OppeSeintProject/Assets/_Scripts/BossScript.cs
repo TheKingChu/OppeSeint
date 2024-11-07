@@ -11,7 +11,7 @@ public class BossScript : MonoBehaviour
     public Transform pointB;
     private Transform targetPoint;
 
-    [SerializeField] private int damageToPlayer = 1;
+    [SerializeField] private int damageToPlayer = 2;
 
     public GameObject explosionEffectPrefab;
     public Camera mainCamera;
