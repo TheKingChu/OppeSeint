@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Canvas
   - LevelLoader
+  - Activator
   layers:
   - Default
   - TransparentFX
