@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 99628838}
   m_Layer: 0
   m_Name: GreenJumpTile (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -884,7 +884,7 @@ Transform:
   m_GameObject: {fileID: 191612579}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.63, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 203065271}
   m_Layer: 0
   m_Name: GreenJumpTile (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1105,7 @@ Transform:
   m_GameObject: {fileID: 220842079}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 4.33, z: 0.030738303}
+  m_LocalPosition: {x: -4.01, y: 4.33, z: 0.030738303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1676,7 +1676,7 @@ Transform:
   m_GameObject: {fileID: 339102452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.67, y: 1.11, z: 0.030738303}
+  m_LocalPosition: {x: -0.67, y: 1.33, z: 0.030738303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1916,7 +1916,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.46}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1927,7 +1927,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.92, y: 2}
+  m_Size: {x: 0.92, y: 1.1}
   m_EdgeRadius: 0
 --- !u!114 &361077338
 MonoBehaviour:
@@ -2293,7 +2293,7 @@ GameObject:
   - component: {fileID: 514665885}
   m_Layer: 0
   m_Name: GreenJumpTile (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2696,7 +2696,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.681, y: -8.986, z: 0.09475687}
-  m_LocalScale: {x: 0.4, y: 0.56, z: 0.4}
+  m_LocalScale: {x: 0.4, y: 0.69, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 929559782}
@@ -3400,7 +3400,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.994997, y: -8.986, z: 0.09475687}
-  m_LocalScale: {x: 0.4, y: 0.56, z: 0.4}
+  m_LocalScale: {x: 0.4, y: 0.69, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 929559782}
@@ -4063,7 +4063,7 @@ Transform:
   m_GameObject: {fileID: 721302081}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.36, y: -8.93, z: 0}
+  m_LocalPosition: {x: -6.34, y: -8.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4112,7 +4112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.59}
+  m_Size: {x: 1, y: 0.67}
   m_EdgeRadius: 0
 --- !u!114 &721302084
 MonoBehaviour:
@@ -4876,7 +4876,7 @@ Transform:
   m_GameObject: {fileID: 942543383}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3, y: 1.73, z: 0}
+  m_LocalPosition: {x: -3.3, y: 2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5016,7 +5016,7 @@ GameObject:
   - component: {fileID: 955906650}
   m_Layer: 0
   m_Name: GreenJumpTile (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5166,7 +5166,7 @@ GameObject:
   - component: {fileID: 993361950}
   m_Layer: 0
   m_Name: GreenJumpTile (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5478,8 +5478,8 @@ Transform:
   m_GameObject: {fileID: 1033742304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.681, y: -8.986, z: 0.09475687}
-  m_LocalScale: {x: 0.4, y: 0.56, z: 0.4}
+  m_LocalPosition: {x: -6.681, y: -8.93, z: 0.09475687}
+  m_LocalScale: {x: 0.4, y: 0.69, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 903195755}
@@ -6134,7 +6134,7 @@ Transform:
   m_GameObject: {fileID: 1163115168}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9, y: 1.26, z: 0.030738303}
+  m_LocalPosition: {x: -3.9, y: 1.15, z: 0.030738303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7092,7 +7092,7 @@ GameObject:
   - component: {fileID: 1481878708}
   m_Layer: 0
   m_Name: GreenJumpTile (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39130,8 +39130,8 @@ Transform:
   m_GameObject: {fileID: 1681956289}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.994997, y: -8.986, z: 0.09475687}
-  m_LocalScale: {x: 0.4, y: 0.56, z: 0.4}
+  m_LocalPosition: {x: -5.994997, y: -8.93, z: 0.09475687}
+  m_LocalScale: {x: 0.4, y: 0.69, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 903195755}
@@ -47254,7 +47254,7 @@ GameObject:
   - component: {fileID: 1865346209}
   m_Layer: 0
   m_Name: GreenJumpTile (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47416,8 +47416,8 @@ Transform:
   m_GameObject: {fileID: 1887071593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3609967, y: -8.986, z: 0.09475687}
-  m_LocalScale: {x: 0.4, y: 0.56, z: 0.4}
+  m_LocalPosition: {x: -6.3609967, y: -8.93, z: 0.09475687}
+  m_LocalScale: {x: 0.4, y: 0.69, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 903195755}
@@ -48288,7 +48288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -376.1, y: 120}
+  m_AnchoredPosition: {x: -408.07, y: 120}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1991676325
@@ -48412,7 +48412,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.3609967, y: -8.986, z: 0.09475687}
-  m_LocalScale: {x: 0.4, y: 0.56, z: 0.4}
+  m_LocalScale: {x: 0.4, y: 0.69, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 929559782}
@@ -48636,7 +48636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -121.7, y: 120}
+  m_AnchoredPosition: {x: -157.8, y: 120}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2080358901
@@ -48760,7 +48760,7 @@ Transform:
   m_GameObject: {fileID: 2082058573}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.36, y: -8.93, z: 0}
+  m_LocalPosition: {x: -6.36, y: -8.907, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48837,7 +48837,7 @@ GameObject:
   - component: {fileID: 2099794329}
   m_Layer: 0
   m_Name: GreenJumpTile (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49123,7 +49123,7 @@ GameObject:
   - component: {fileID: 2141087925}
   m_Layer: 0
   m_Name: GreenJumpTile
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
