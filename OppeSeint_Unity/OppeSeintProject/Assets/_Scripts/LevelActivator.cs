@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelActivator : MonoBehaviour
 {
     public GameObject levelToActivate;
+    public GameObject levelCanvas;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +23,12 @@ public class LevelActivator : MonoBehaviour
                 {
                     levelToActivate.SetActive(true);
                 }
+
+                if(levelCanvas != null)
+                {
+                    levelCanvas.SetActive(true);
+                }
+
                 gameObject.SetActive(false);
             }
         }

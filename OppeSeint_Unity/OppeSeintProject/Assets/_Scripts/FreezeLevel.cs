@@ -6,21 +6,33 @@ public class FreezeLevel : MonoBehaviour
 {
     public bool isActive = false;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
         if (!isActive)
         {
-            foreach(var component in GetComponentsInChildren<MonoBehaviour>())
-            {
-                component.enabled = false;
-            }
+            DisableLevelComponents();
         }
     }
 
     public void ActivateLevel()
     {
         isActive = true;
+        EnableLevelComponents();
+    }
+
+    private void DisableLevelComponents()
+    {
+        if (!isActive)
+        {
+            foreach (var component in GetComponentsInChildren<MonoBehaviour>())
+            {
+                component.enabled = false;
+            }
+        }
+    }
+
+    private void EnableLevelComponents()
+    {
         foreach (var componetn in GetComponentsInChildren<MonoBehaviour>())
         {
             componetn.enabled = true;

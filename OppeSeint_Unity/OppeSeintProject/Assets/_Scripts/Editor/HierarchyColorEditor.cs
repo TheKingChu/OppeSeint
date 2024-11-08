@@ -48,6 +48,8 @@ public class HierarchyColorEditor
         {
             case "Enemy":
                 return enemyColor;
+            case "Boss":
+                return enemyColor;
             case "Player":
                 return playerColor;
             case "Canvas":

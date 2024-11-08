@@ -6,15 +6,20 @@ public class BossProjectile : MonoBehaviour
 {
     public int damageToPlayer = 2;
 
-    public Transform bossTransform;
+    [Header("Projectile settings")]
     [SerializeField] private float floatRadius = 2f;
     [SerializeField] private float rotateSpeed = 2f;
-    [SerializeField] float detectionRange = 10f;
-    [SerializeField] float projectileSpeed = 2f;
+    [SerializeField] private float detectionRange = 10f;
+    [SerializeField] private float projectileSpeed = 1f;
+    [SerializeField] private float fireCooldown = 3f;
 
+    [Header("References")]
+    public Transform bossTransform;
     private Transform player;
     private bool isLaunched = false;
     private Vector2 originalOffset; //track position around the boss
+
+    private float lastFireTime;
 
     private void Start()
     {
@@ -35,23 +40,33 @@ public class BossProjectile : MonoBehaviour
             float angle = rotateSpeed * Time.deltaTime;
             transform.position = bossTransform.position + (Vector3)(Quaternion.Euler(0, 0, angle) * originalOffset);
 
-            if(player != null && Vector2.Distance(transform.position, player.position) <= detectionRange)
+            if (player != null && Vector2.Distance(transform.position, player.position) <= detectionRange && Time.time >= lastFireTime + fireCooldown)
             {
-                LauchProjectile();
+                if (Mathf.Abs(player.position.y - bossTransform.position.y) < 1f) // Check if player is on the same level
+                {
+                    LaunchProjectile();
+                    lastFireTime = Time.time;
+                }
             }
         }
     }
 
-    private void LauchProjectile()
+    private void LaunchProjectile()
     {
         isLaunched = true;
 
-        Vector2 direction = (player.position - transform.position).normalized;
-
-        Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
-        if(rb2d != null)
+        // Check if player is on the same vertical level as the boss
+        if (Mathf.Abs(player.position.y - bossTransform.position.y) < 1f)
         {
-            rb2d.velocity = direction * projectileSpeed;
+            // Determine direction towards the player
+            Vector2 direction = (player.position - transform.position).normalized;
+
+            // Add Rigidbody2D for projectile movement
+            Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
+            if (rb2d != null)
+            {
+                rb2d.velocity = direction * projectileSpeed;
+            }
         }
     }
 

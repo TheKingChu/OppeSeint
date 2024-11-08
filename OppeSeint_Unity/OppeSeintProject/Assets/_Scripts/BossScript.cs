@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
 {
-    [SerializeField] private int health = 10;
     [SerializeField] private float speed = 1f;
     public Transform pointA;
     public Transform pointB;
     private Transform targetPoint;
+
+    [Header("Health")]
+    [SerializeField] private int maxHealth = 10;
+    private int currentHealth;
+    public Image heartSpriteRenderer;
+    public Sprite fullHealth;
+    public Sprite halfHealth;
+    public Sprite noHealth;
 
     [SerializeField] private int damageToPlayer = 2;
 
@@ -23,6 +30,8 @@ public class BossScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+
         targetPoint = pointB;
 
         if(mainCamera == null)
@@ -42,14 +51,11 @@ public class BossScript : MonoBehaviour
 
         //Check if the boss has reached the target point
         float distanceToTarget = Vector2.Distance(transform.position, targetPoint.position);
-        Debug.Log($"Distance to target ({targetPoint.name}): {distanceToTarget}");
 
-        // Use a slightly larger threshold to ensure the switch
-        if (distanceToTarget < 0.2f)  // Try a slightly larger threshold here
+        if (distanceToTarget < 0.2f)
         {
             // Switch target point
             targetPoint = targetPoint == pointA ? pointB : pointA;
-            Debug.Log($"Switching target to: {targetPoint.name}");
         }
     }
 
@@ -67,10 +73,27 @@ public class BossScript : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if(health <= 0)
+        currentHealth -= damage;
+        UpdateHealthSprite();
+        if(currentHealth <= 0)
         {
             StartCoroutine(Death());
+        }
+    }
+
+    private void UpdateHealthSprite()
+    {
+        if (currentHealth > maxHealth / 2)
+        {
+            heartSpriteRenderer.sprite = fullHealth;
+        }
+        else if(currentHealth > 0)
+        {
+            heartSpriteRenderer.sprite = halfHealth;
+        }
+        else
+        {
+            heartSpriteRenderer.sprite = noHealth;
         }
     }
 
