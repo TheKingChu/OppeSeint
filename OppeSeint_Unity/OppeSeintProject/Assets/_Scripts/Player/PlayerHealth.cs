@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,12 +13,16 @@ public class PlayerHealth : MonoBehaviour
     public Sprite halfHeart;
     public Sprite emptyHeart;
 
+    public GameObject loseCanvas;
+
     private DamageEffect damageEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         damageEffect = GetComponentInChildren<DamageEffect>();
+        loseCanvas.SetActive(false);
+
         currentHealth = maxHealth;
         UpdateHearts();
     }
@@ -56,8 +61,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("game over");
-
         //TODO add game over panel
+        Time.timeScale = 0f;
+        loseCanvas.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
