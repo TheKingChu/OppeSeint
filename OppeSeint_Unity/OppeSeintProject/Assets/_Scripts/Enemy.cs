@@ -28,13 +28,21 @@ public class Enemy : MonoBehaviour
     public GameObject boostDrop;
     [SerializeField] private float dropChance = 0.1f; //10% chance of drop
 
+    private ExplosionEffect explosionEffect;
+
     private Rigidbody2D rb2d;
     private Transform player;
 
     private void Start()
     {
+        explosionEffect = GetComponent<ExplosionEffect>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if(explosionEffect == null)
+        {
+            Debug.LogError("No effect added");
+        }
     }
 
     private void Update()
@@ -92,7 +100,12 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             DropItem();
-            Destroy(gameObject);
+            
+            if(explosionEffect != null)
+            {
+                explosionEffect.PlayExplosionEffect();
+                Destroy(gameObject);
+            }
         }
     }
 

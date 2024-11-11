@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8498469556832052897}
   - component: {fileID: 8341822545787065397}
   - component: {fileID: 7274332933393545810}
+  - component: {fileID: 1007921349850442696}
   m_Layer: 8
   m_Name: enemy
   m_TagString: Enemy
@@ -118,6 +119,7 @@ MonoBehaviour:
   healthDrop: {fileID: 3508625694718028608, guid: 0c5ef31540485bb478067909c0b94851, type: 3}
   boostDrop: {fileID: 1673405385476227608, guid: ae5e56d8640a718459a7949dfe589a2c, type: 3}
   dropChance: 0.1
+  explosionEffect: {fileID: 0}
 --- !u!50 &8341822545787065397
 Rigidbody2D:
   serializedVersion: 4
@@ -190,6 +192,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1007921349850442696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607718308893749878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359e3e0e36c5297428023e71f703d4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 7788517298634310986, guid: 3d617a10e5023104e8d6e6fd1552d8d6, type: 3}
 --- !u!1 &3160092676271492022
 GameObject:
   m_ObjectHideFlags: 0
