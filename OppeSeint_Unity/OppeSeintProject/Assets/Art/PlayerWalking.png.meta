@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32a98149076cf1141962ddb9a1c20278
-      internalID: 1637021448
+      spriteID: 1563b7490d4162540adf8eb184698f78
+      internalID: 1704371453
       vertices: []
       indices: 
       edges: []
@@ -171,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82d9b9f13e4a60043ab6685ccc844260
-      internalID: 2135714960
+      spriteID: 9cb6ec571cf9c92469d98aa408e293e8
+      internalID: 545611594
       vertices: []
       indices: 
       edges: []
@@ -192,8 +192,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3db452db3dc81e040a20b2cc4eb08cd2
-      internalID: 1185793600
+      spriteID: cd42720cc32ff8a45a2d73c92b94763e
+      internalID: 1389961155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalking_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba6700b199a15f4795901c48b972b7a
+      internalID: -1310795789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalking_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64f8e7ff25eeb441ba6087c8f221186
+      internalID: -478152277
       vertices: []
       indices: 
       edges: []
@@ -209,9 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerWalking_0: 1637021448
-      PlayerWalking_1: 2135714960
-      PlayerWalking_2: 1185793600
+      PlayerWalking_0: 1704371453
+      PlayerWalking_1: 545611594
+      PlayerWalking_2: 1389961155
+      PlayerWalking_3: -1310795789
+      PlayerWalking_4: -478152277
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

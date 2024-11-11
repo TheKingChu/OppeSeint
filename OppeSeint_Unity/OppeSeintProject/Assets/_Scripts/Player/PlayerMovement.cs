@@ -74,18 +74,25 @@ public class PlayerMovement : MonoBehaviour
                 spriteRenderer.flipX = direction.x < 0;
                 gunRenderer.flipX = direction.x < 0;
                 UpdateGunPosition();
+
+                animator.SetBool("IsWalking", true);
+            }
+            else
+            {
+                animator.SetBool("IsWalking", false);
             }
         }
         else
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            animator.SetBool("IsWalking", false);
         }
     }
 
     private void UpdateGunPosition()
     {
         Vector2 playerPos = transform.position;
-        Vector2 gunPos = playerPos + (direction.x < 0 ? -gunOffset : gunOffset);
+        Vector2 gunPos = playerPos + (spriteRenderer.flipX ? -gunOffset : gunOffset);
         gunRenderer.transform.position = new Vector3(gunPos.x, gunPos.y, gunRenderer.transform.position.z);
     }
 
