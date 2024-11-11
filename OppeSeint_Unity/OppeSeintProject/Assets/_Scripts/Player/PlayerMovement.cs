@@ -19,11 +19,14 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 gunOffset = new Vector2(0.5f, 0);
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -90,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(jumpCount < maxJumps)
         {
+            animator.SetTrigger("Jumping");
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             jumpCount++;
         }
