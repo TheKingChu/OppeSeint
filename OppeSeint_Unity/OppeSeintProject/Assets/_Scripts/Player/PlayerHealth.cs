@@ -59,6 +59,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Heal(int amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        UpdateHearts();
+    }
+
     private void GameOver()
     {
         //TODO add game over panel

@@ -7,6 +7,13 @@ public class Powerup : MonoBehaviour
     public float newShootCooldown = 0.2f;
     public float duration = 5f;
 
+    private PowerupEffect powerupEffect;
+
+    private void Start()
+    {
+        powerupEffect = GetComponent<PowerupEffect>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -15,6 +22,11 @@ public class Powerup : MonoBehaviour
             if(playerShooting != null)
             {
                 playerShooting.ActivatePowerUp(newShootCooldown, duration);
+
+                if(powerupEffect != null)
+                {
+                    powerupEffect.PlayPowerupEffect(collision.transform.position);
+                }
             }
 
             Destroy(gameObject);
