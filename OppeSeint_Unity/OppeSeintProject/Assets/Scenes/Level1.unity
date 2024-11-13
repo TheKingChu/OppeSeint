@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 66433840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4290924, y: -0.54854107, z: 0.04566029}
+  m_LocalPosition: {x: -0.05101013, y: -0.46404743, z: -0.04909658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -260,7 +260,7 @@ Transform:
   - {fileID: 829058409}
   - {fileID: 705978644}
   - {fileID: 1892850980}
-  m_Father: {fileID: 1830229323}
+  m_Father: {fileID: 1125677567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76596784
 GameObject:
@@ -297,7 +297,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 265.5, y: 56.7}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &76596786
 MonoBehaviour:
@@ -1640,8 +1640,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -124.4}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 0, y: -267.2}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263792513
 MonoBehaviour:
@@ -1750,7 +1750,7 @@ Transform:
   m_GameObject: {fileID: 282051691}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8119125, y: -0.24449348, z: 0.008574612}
+  m_LocalPosition: {x: 1.8119125, y: 0, z: 0.008574612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2956,12 +2956,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
-  floatRadius: 2
-  rotateSpeed: 2
-  detectionRange: 10
-  projectileSpeed: 2
-  fireCooldown: 3
-  bossTransform: {fileID: 1125677567}
 --- !u!50 &522724426
 Rigidbody2D:
   serializedVersion: 4
@@ -2970,14 +2964,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522724422}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -3021,9 +3015,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06, y: -0.04}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.3
 --- !u!1 &543014648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,7 +3988,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 353.2, y: 50.5}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653944735
 MonoBehaviour:
@@ -4337,11 +4331,11 @@ PrefabInstance:
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 7712377612378724864, guid: 04bd48f913c82dc49a0eb4d2a38fce8a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: projectileSpawnPoint
       value: 
-      objectReference: {fileID: 676217191}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4350,11 +4344,6 @@ PrefabInstance:
 --- !u!4 &676217190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1977805696004400020, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
-  m_PrefabInstance: {fileID: 676217189}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &676217191 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5055179527468725962, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
   m_PrefabInstance: {fileID: 676217189}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &688059072
@@ -4428,11 +4417,11 @@ PrefabInstance:
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 7712377612378724864, guid: 04bd48f913c82dc49a0eb4d2a38fce8a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: projectileSpawnPoint
       value: 
-      objectReference: {fileID: 688059074}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4441,11 +4430,6 @@ PrefabInstance:
 --- !u!4 &688059073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1977805696004400020, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
-  m_PrefabInstance: {fileID: 688059072}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &688059074 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5055179527468725962, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
   m_PrefabInstance: {fileID: 688059072}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &698589952
@@ -4698,12 +4682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
-  floatRadius: 2
-  rotateSpeed: 2
-  detectionRange: 10
-  projectileSpeed: 2
-  fireCooldown: 3
-  bossTransform: {fileID: 1125677567}
 --- !u!50 &705978647
 Rigidbody2D:
   serializedVersion: 4
@@ -4712,14 +4690,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705978643}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4763,9 +4741,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06, y: -0.04}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.3
 --- !u!1 &714096992
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,12 +5394,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
-  floatRadius: 2
-  rotateSpeed: 2
-  detectionRange: 10
-  projectileSpeed: 2
-  fireCooldown: 3
-  bossTransform: {fileID: 1125677567}
 --- !u!50 &829058412
 Rigidbody2D:
   serializedVersion: 4
@@ -5430,14 +5402,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829058408}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -5481,9 +5453,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06, y: -0.04}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.3
 --- !u!1 &835338980
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,7 +5883,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 353.2, y: 50.5}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &943622477
 MonoBehaviour:
@@ -6915,12 +6887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
-  floatRadius: 2
-  rotateSpeed: 2
-  detectionRange: 10
-  projectileSpeed: 1
-  fireCooldown: 3
-  bossTransform: {fileID: 1125677567}
 --- !u!50 &1116754590
 Rigidbody2D:
   serializedVersion: 4
@@ -6929,14 +6895,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116754586}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -6980,9 +6946,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06, y: -0.04}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.3
 --- !u!1 &1123700145
 GameObject:
   m_ObjectHideFlags: 0
@@ -7146,7 +7112,7 @@ GameObject:
   - component: {fileID: 1125677568}
   - component: {fileID: 1125677569}
   - component: {fileID: 1125677570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -7219,6 +7185,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 612250340}
+  - {fileID: 66433841}
   m_Father: {fileID: 1830229323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1125677568
@@ -7292,6 +7259,10 @@ MonoBehaviour:
   slowMotion: 0.1
   zoomInSize: 3
   explosionDuration: 2
+  winScreen: {fileID: 588354578}
+  projectileContainer: {fileID: 66433841}
+  projectiles: []
+  projectileSpeed: 2
 --- !u!50 &1125677570
 Rigidbody2D:
   serializedVersion: 4
@@ -7304,10 +7275,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -7802,7 +7773,7 @@ Transform:
   m_GameObject: {fileID: 1284340046}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.368088, y: -0.24449348, z: 0.008574612}
+  m_LocalPosition: {x: -6.368088, y: 0, z: 0.008574612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8608,7 +8579,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559839904
 MonoBehaviour:
@@ -40778,7 +40749,7 @@ GameObject:
   - component: {fileID: 1703805909}
   m_Layer: 0
   m_Name: Cave
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48228,7 +48199,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780930235
 MonoBehaviour:
@@ -48518,7 +48489,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 66433841}
   - {fileID: 1284340047}
   - {fileID: 282051692}
   - {fileID: 1853007099}
@@ -49056,12 +49026,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
-  floatRadius: 2
-  rotateSpeed: 2
-  detectionRange: 10
-  projectileSpeed: 2
-  fireCooldown: 3
-  bossTransform: {fileID: 1125677567}
 --- !u!50 &1892850983
 Rigidbody2D:
   serializedVersion: 4
@@ -49070,14 +49034,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892850979}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -49121,9 +49085,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06, y: -0.04}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.3
 --- !u!1 &1922952505
 GameObject:
   m_ObjectHideFlags: 0
@@ -50283,12 +50247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
-  floatRadius: 2
-  rotateSpeed: 2
-  detectionRange: 10
-  projectileSpeed: 2
-  fireCooldown: 3
-  bossTransform: {fileID: 1125677567}
 --- !u!50 &2079820041
 Rigidbody2D:
   serializedVersion: 4
@@ -50297,14 +50255,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079820037}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -50348,9 +50306,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06, y: -0.04}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.3
 --- !u!1 &2080358899
 GameObject:
   m_ObjectHideFlags: 0

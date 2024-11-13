@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BossScript : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float speed = 1f;
     public Transform pointA;
     public Transform pointB;
@@ -18,14 +19,23 @@ public class BossScript : MonoBehaviour
     public Sprite halfHealth;
     public Sprite noHealth;
 
+    [Header("Damage")]
     [SerializeField] private int damageToPlayer = 2;
 
+    [Header("Death Effect")]
     public GameObject explosionEffectPrefab;
     public Camera mainCamera;
     [SerializeField] private float slowMotion = 0.1f;
     [SerializeField] private float zoomInSize = 3f;
     //[SerializeField] private float zoomDuration = 1f;
     [SerializeField] private float explosionDuration = 2f;
+    public GameObject winScreen;
+
+    [Header("Projectile")]
+    public Transform projectileContainer;
+    public List<BossProjectile> projectiles = new List<BossProjectile>();
+    [SerializeField] private float projectileSpeed = 2f;
+    private int currentProjectileIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +48,25 @@ public class BossScript : MonoBehaviour
         {
             mainCamera = Camera.main;
         }
+
+        // Initialize the projectiles list by finding all projectiles in the child container
+        if (projectileContainer != null)
+        {
+            // Get all children that are projectiles
+            for (int i = 0; i < projectileContainer.childCount; i++)
+            {
+                // Assuming projectiles are of type BossProjectile
+                BossProjectile projectile = projectileContainer.GetChild(i).GetComponent<BossProjectile>();
+                if (projectile != null)
+                {
+                    projectiles.Add(projectile);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("Projectile container is not assigned in the BossScript.");
+        }
     }
 
     private void Update()
@@ -49,10 +78,7 @@ public class BossScript : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
 
-        //Check if the boss has reached the target point
-        float distanceToTarget = Vector2.Distance(transform.position, targetPoint.position);
-
-        if (distanceToTarget < 0.2f)
+        if (Vector2.Distance(transform.position, targetPoint.position) < 0.4f)
         {
             // Switch target point
             targetPoint = targetPoint == pointA ? pointB : pointA;
@@ -75,10 +101,43 @@ public class BossScript : MonoBehaviour
     {
         currentHealth -= damage;
         UpdateHealthSprite();
+
+        ShootProjectile();
+
         if(currentHealth <= 0)
         {
             StartCoroutine(Death());
         }
+    }
+
+    private void ShootProjectile()
+    {
+        if (projectiles.Count == 0)
+        {
+            Debug.LogWarning("No projectiles available to fire.");
+            return; // Exit if there are no projectiles in the list
+        }
+
+        BossProjectile projectile = projectiles[currentProjectileIndex];
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if(projectile != null && player != null)
+        {
+            Vector2 direction = (player.position - projectile.transform.position).normalized;
+            Rigidbody2D rigidbody2D = projectile.GetComponent<Rigidbody2D>();
+
+            if(rigidbody2D != null)
+            {
+                rigidbody2D.velocity = direction * projectileSpeed;
+                Debug.Log("Projectile fired! Direction: " + direction);
+            }
+            else
+            {
+                Debug.LogError("Rigidbody2D not found on projectile.");
+            }
+        }
+
+        currentProjectileIndex = (currentProjectileIndex + 1) % projectiles.Count;
     }
 
     private void UpdateHealthSprite()
@@ -118,6 +177,8 @@ public class BossScript : MonoBehaviour
         Time.timeScale = 1;
         Time.fixedDeltaTime = 0.02f;
         mainCamera.orthographicSize = originalSize;
+
+        winScreen.SetActive(true);
 
         Destroy(gameObject);
     }
