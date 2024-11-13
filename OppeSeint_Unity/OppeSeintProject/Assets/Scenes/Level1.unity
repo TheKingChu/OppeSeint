@@ -796,6 +796,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
+      propertyPath: dropChance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 7712377612378724864, guid: 04bd48f913c82dc49a0eb4d2a38fce8a, type: 3}
@@ -3373,6 +3377,8 @@ GameObject:
   - component: {fileID: 599848478}
   - component: {fileID: 599848480}
   - component: {fileID: 599848481}
+  - component: {fileID: 599848483}
+  - component: {fileID: 599848482}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3589,6 +3595,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &599848482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599848473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104c294125b1ae8448ee6114e8f280a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healingEffect: {fileID: 5018834218929498617, guid: ffee3efd926d39b4bb4be1f7dbeb8e89, type: 3}
+  effectDuration: 1
+--- !u!114 &599848483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599848473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe117c1997465a42924757bf53c30c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupEffect: {fileID: 241596809363751458, guid: e2c7ba95267d3e342a959396364b12c5, type: 3}
+  effectDuration: 1
 --- !u!1 &610595344
 GameObject:
   m_ObjectHideFlags: 0
@@ -51177,6 +51211,10 @@ PrefabInstance:
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: moveSpeed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
+      propertyPath: dropChance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: projectilePrefab

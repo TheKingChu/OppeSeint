@@ -16,7 +16,7 @@ public class HealingEffect : MonoBehaviour
         }
     }
 
-    public void PlayHealingEffect(Vector3 pos)
+    public void PlayHealingEffect(Vector2 pos)
     {
         GameObject effect = Instantiate(healingEffect, pos, Quaternion.identity);
         Destroy(effect, effectDuration);

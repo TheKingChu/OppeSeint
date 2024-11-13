@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class HealthDrop : MonoBehaviour
 {
-    public int healtAmount = 1;
+    public int healthAmount = 1;
     private HealingEffect healingEffect;
-
-    private void Start()
-    {
-        healingEffect = GetComponent<HealingEffect>();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +14,9 @@ public class HealthDrop : MonoBehaviour
             PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
             if(playerHealth != null)
             {
-                playerHealth.Heal(healtAmount);
+                playerHealth.Heal(healthAmount);
+                healingEffect = collision.GetComponent<HealingEffect>();
+
                 if(healingEffect != null)
                 {
                     healingEffect.PlayHealingEffect(collision.transform.position);

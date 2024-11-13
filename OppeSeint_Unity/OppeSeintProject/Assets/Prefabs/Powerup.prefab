@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1460975107436147724}
   - component: {fileID: 7784473480489313611}
   - component: {fileID: 6848296938576203057}
-  - component: {fileID: 2852230763440464158}
   m_Layer: 0
   m_Name: Powerup
   m_TagString: Untagged
@@ -136,17 +135,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2852230763440464158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673405385476227608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe117c1997465a42924757bf53c30c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerupEffect: {fileID: 241596809363751458, guid: e2c7ba95267d3e342a959396364b12c5, type: 3}
-  effectDuration: 0.5

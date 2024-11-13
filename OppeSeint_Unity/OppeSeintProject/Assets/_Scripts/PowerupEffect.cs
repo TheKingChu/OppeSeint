@@ -16,7 +16,7 @@ public class PowerupEffect : MonoBehaviour
         }
     }
 
-    public void PlayPowerupEffect(Vector3 pos)
+    public void PlayPowerupEffect(Vector2 pos)
     {
         GameObject effect = Instantiate(powerupEffect, pos, Quaternion.identity);
         Destroy(effect, effectDuration);

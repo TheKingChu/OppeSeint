@@ -9,11 +9,6 @@ public class Powerup : MonoBehaviour
 
     private PowerupEffect powerupEffect;
 
-    private void Start()
-    {
-        powerupEffect = GetComponent<PowerupEffect>();
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -22,6 +17,7 @@ public class Powerup : MonoBehaviour
             if(playerShooting != null)
             {
                 playerShooting.ActivatePowerUp(newShootCooldown, duration);
+                powerupEffect = collision.GetComponent<PowerupEffect>();
 
                 if(powerupEffect != null)
                 {

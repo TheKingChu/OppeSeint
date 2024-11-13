@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3502719053043594963}
   - component: {fileID: 271918993122263710}
   - component: {fileID: 7955400020612281740}
-  - component: {fileID: 1637728893379323189}
   m_Layer: 0
   m_Name: HealthDrop
   m_TagString: Untagged
@@ -134,18 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90aedb898345f34fa0bb1e07b3d0535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healtAmount: 1
---- !u!114 &1637728893379323189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3508625694718028608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104c294125b1ae8448ee6114e8f280a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healingEffect: {fileID: 5018834218929498617, guid: ffee3efd926d39b4bb4be1f7dbeb8e89, type: 3}
-  effectDuration: 1
+  healthAmount: 1
