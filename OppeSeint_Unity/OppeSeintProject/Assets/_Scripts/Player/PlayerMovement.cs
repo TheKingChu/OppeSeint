@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction;
     private SpriteRenderer spriteRenderer;
     public SpriteRenderer gunRenderer;
-    private bool isDragging = false;
+    [SerializeField] private bool isDragging = false;
 
     public Vector2 gunOffset = new Vector2(0.5f, 0);
 
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2d.velocity = new Vector2(direction.x * moveSpeed, rb2d.velocity.y);
 
-            if(direction.x != 0)
+            if (direction.x != 0)
             {
                 spriteRenderer.flipX = direction.x < 0;
                 gunRenderer.flipX = direction.x < 0;

@@ -3629,6 +3629,7 @@ MonoBehaviour:
   jumpForce: 5
   maxJumps: 2
   gunRenderer: {fileID: 772935854}
+  isDragging: 0
   gunOffset: {x: 0.5, y: 0}
 --- !u!50 &599848478
 Rigidbody2D:
@@ -7785,7 +7786,9 @@ MonoBehaviour:
   slowMotion: 0.1
   zoomInSize: 3
   explosionDuration: 2
-  winScreen: {fileID: 0}
+  chestPrefab: {fileID: 8482800269849508501, guid: 4922fae77e70e144a8f9c7ed7f0699a4, type: 3}
+  chestSpawnPoint: {fileID: 749786039}
+  sequenceDuration: 7
   projectileContainer: {fileID: 66433841}
   projectiles: []
   projectileSpeed: 2

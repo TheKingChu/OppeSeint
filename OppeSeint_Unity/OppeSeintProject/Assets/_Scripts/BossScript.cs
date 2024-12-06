@@ -29,7 +29,12 @@ public class BossScript : MonoBehaviour
     [SerializeField] private float zoomInSize = 3f;
     //[SerializeField] private float zoomDuration = 1f;
     [SerializeField] private float explosionDuration = 2f;
-    public GameObject winScreen;
+
+    [Header("Win sequence")]
+    [SerializeField] private GameObject chestPrefab;
+    [SerializeField] private Transform chestSpawnPoint;
+    [SerializeField] private float sequenceDuration = 7f;
+    private bool isSequencePlayer = false;
 
     [Header("Projectile")]
     public Transform projectileContainer;
@@ -44,7 +49,7 @@ public class BossScript : MonoBehaviour
 
         targetPoint = pointB;
 
-        if(mainCamera == null)
+        if (mainCamera == null)
         {
             mainCamera = Camera.main;
         }
@@ -90,7 +95,7 @@ public class BossScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            if(playerHealth != null)
+            if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damageToPlayer);
             }
@@ -104,7 +109,7 @@ public class BossScript : MonoBehaviour
 
         ShootProjectile();
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0 && !isSequencePlayer)
         {
             StartCoroutine(Death());
         }
@@ -121,12 +126,12 @@ public class BossScript : MonoBehaviour
         BossProjectile projectile = projectiles[currentProjectileIndex];
         Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        if(projectile != null && player != null)
+        if (projectile != null && player != null)
         {
             Vector2 direction = (player.position - projectile.transform.position).normalized;
             Rigidbody2D rigidbody2D = projectile.GetComponent<Rigidbody2D>();
 
-            if(rigidbody2D != null)
+            if (rigidbody2D != null)
             {
                 rigidbody2D.velocity = direction * projectileSpeed;
                 Debug.Log("Projectile fired! Direction: " + direction);
@@ -146,7 +151,7 @@ public class BossScript : MonoBehaviour
         {
             heartSpriteRenderer.sprite = fullHealth;
         }
-        else if(currentHealth > 0)
+        else if (currentHealth > 0)
         {
             heartSpriteRenderer.sprite = halfHealth;
         }
@@ -158,15 +163,24 @@ public class BossScript : MonoBehaviour
 
     private IEnumerator Death()
     {
+        isSequencePlayer = true;
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
+
         //slow motion
         Time.timeScale = slowMotion;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
         //zoom in
         float originalSize = mainCamera.orthographicSize;
+        Vector3 originalCameraPosition = mainCamera.transform.position;
+
+        // Focus the camera on the boss
+        Vector3 bossPosition = transform.position;
+        mainCamera.transform.position = new Vector3(bossPosition.x, bossPosition.y, originalCameraPosition.z);
         mainCamera.orthographicSize = zoomInSize;
 
-        if(explosionEffectPrefab != null)
+        if (explosionEffectPrefab != null)
         {
             Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
         }
@@ -176,9 +190,53 @@ public class BossScript : MonoBehaviour
         //normal speed
         Time.timeScale = 1;
         Time.fixedDeltaTime = 0.02f;
+
+        GameObject spawnedChest = null;
+        if (chestPrefab != null && chestSpawnPoint != null)
+        {
+            spawnedChest = Instantiate(chestPrefab, chestSpawnPoint.position, Quaternion.identity);
+        }
+
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = false;
+        }
+
+        yield return new WaitForSeconds(sequenceDuration);
+
+        // Player jump and sit animation
+        Transform playerTransform = playerMovement.transform;
+        if (spawnedChest != null)
+        {
+            Animator playerAnimator = playerTransform.GetComponent<Animator>();
+            if (playerAnimator != null)
+            {
+                // Play jump animation
+                playerAnimator.SetTrigger("Jumping");
+
+                // Wait for jump animation to finish
+                yield return new WaitForSeconds(0.5f);
+
+                // Move player to the coin pile
+                Vector3 coinPilePosition = spawnedChest.transform.position + new Vector3(0, 1f, 0); // Adjust offset as needed
+                playerTransform.position = coinPilePosition;
+            }
+        }
+
+        // Wait for sit animation to finish
+        yield return new WaitForSeconds(1f);
+
+        // Re-enable player movement
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = true;
+        }
+
+        mainCamera.transform.position = originalCameraPosition;
         mainCamera.orthographicSize = originalSize;
 
-        winScreen.SetActive(true);
+        //trigger you win text here
 
         Destroy(gameObject);
     }
