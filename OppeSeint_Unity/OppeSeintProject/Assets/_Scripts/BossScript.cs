@@ -35,6 +35,7 @@ public class BossScript : MonoBehaviour
     [SerializeField] private Transform chestSpawnPoint;
     [SerializeField] private float sequenceDuration = 7f;
     private bool isSequencePlayer = false;
+    public GameObject winCanvas;
 
     [Header("Projectile")]
     public Transform projectileContainer;
@@ -226,6 +227,8 @@ public class BossScript : MonoBehaviour
 
         // Wait for sit animation to finish
         yield return new WaitForSeconds(1f);
+
+        winCanvas.SetActive(true);
 
         // Re-enable player movement
         if (playerMovement != null)
