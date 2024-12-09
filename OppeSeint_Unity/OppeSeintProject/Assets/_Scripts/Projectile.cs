@@ -41,6 +41,15 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else if (collision.gameObject.CompareTag("BossProjectiles"))
+        {
+            // Stop the projectiles from moving on collision
+            Rigidbody2D bossProjectileRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (bossProjectileRb != null && bossProjectileRb.bodyType == RigidbodyType2D.Dynamic)
+            {
+                bossProjectileRb.velocity = Vector2.zero; // Nullify any movement caused by the collision
+            }
+        }
         else if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);

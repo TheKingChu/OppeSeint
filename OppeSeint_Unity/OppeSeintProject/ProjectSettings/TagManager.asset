@@ -11,6 +11,7 @@ TagManager:
   - LevelLoader
   - Activator
   - Boss
+  - BossProjectiles
   layers:
   - Default
   - TransparentFX
