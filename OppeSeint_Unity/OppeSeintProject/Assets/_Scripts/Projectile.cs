@@ -31,6 +31,14 @@ public class Projectile : MonoBehaviour
             {
                 bossScript.TakeDamage(1);
             }
+
+            // Stop the projectile from pushing the boss
+            Rigidbody2D bossRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (bossRb != null && bossRb.bodyType == RigidbodyType2D.Dynamic)
+            {
+                bossRb.velocity = Vector2.zero; // Nullify any movement caused by the collision
+            }
+
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Ground"))

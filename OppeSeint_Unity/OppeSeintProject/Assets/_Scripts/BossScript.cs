@@ -181,12 +181,21 @@ public class BossScript : MonoBehaviour
         mainCamera.transform.position = new Vector3(bossPosition.x, bossPosition.y, originalCameraPosition.z);
         mainCamera.orthographicSize = zoomInSize;
 
+        GameObject explosion = null;
         if (explosionEffectPrefab != null)
         {
-            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+            explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+            explosion.SetActive(true);
         }
 
         yield return new WaitForSecondsRealtime(explosionDuration);
+        explosion.SetActive(false);
+
+        Collider2D bossCollider = gameObject.GetComponent<Collider2D>();
+        if (bossCollider != null)
+        {
+            bossCollider.enabled = false;
+        }
 
         //normal speed
         Time.timeScale = 1;
@@ -204,7 +213,7 @@ public class BossScript : MonoBehaviour
             playerMovement.enabled = false;
         }
 
-        yield return new WaitForSeconds(sequenceDuration);
+        yield return new WaitForSeconds(2f);
 
         // Player jump and sit animation
         Transform playerTransform = playerMovement.transform;
