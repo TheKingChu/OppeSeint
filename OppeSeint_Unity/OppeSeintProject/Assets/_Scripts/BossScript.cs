@@ -231,6 +231,15 @@ public class BossScript : MonoBehaviour
                 // Move player to the coin pile
                 Vector3 coinPilePosition = spawnedChest.transform.position + new Vector3(0, 1f, 0); // Adjust offset as needed
                 playerTransform.position = coinPilePosition;
+
+                CameraFollowPlayer cameraFollowPlayer = mainCamera.GetComponent<CameraFollowPlayer>();
+                if(cameraFollowPlayer != null)
+                {
+                    cameraFollowPlayer.enabled = false;
+                }
+
+                // Center the camera on the player
+                mainCamera.transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, originalCameraPosition.z);
             }
         }
 
@@ -244,6 +253,12 @@ public class BossScript : MonoBehaviour
         {
             playerMovement.enabled = true;
         }
+
+        /*CameraFollowPlayer cameraFollowEnabled = mainCamera.GetComponent<CameraFollowPlayer>();
+        if (cameraFollowEnabled != null)
+        {
+            cameraFollowEnabled.enabled = true;
+        }*/
 
         mainCamera.transform.position = originalCameraPosition;
         mainCamera.orthographicSize = originalSize;
