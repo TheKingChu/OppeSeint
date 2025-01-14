@@ -36,6 +36,7 @@ public class BossScript : MonoBehaviour
     [SerializeField] private float sequenceDuration = 7f;
     private bool isSequencePlayer = false;
     public GameObject winCanvas;
+    public GameObject coinParticleEffectPrefab;
 
     [Header("Projectile")]
     public Transform projectileContainer;
@@ -168,11 +169,11 @@ public class BossScript : MonoBehaviour
         SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
 
-        //slow motion
+        // Slow motion
         Time.timeScale = slowMotion;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
-        //zoom in
+        // Zoom in
         float originalSize = mainCamera.orthographicSize;
         Vector3 originalCameraPosition = mainCamera.transform.position;
 
@@ -197,7 +198,7 @@ public class BossScript : MonoBehaviour
             bossCollider.enabled = false;
         }
 
-        //normal speed
+        // Normal speed
         Time.timeScale = 1;
         Time.fixedDeltaTime = 0.02f;
 
@@ -233,7 +234,7 @@ public class BossScript : MonoBehaviour
                 playerTransform.position = coinPilePosition;
 
                 CameraFollowPlayer cameraFollowPlayer = mainCamera.GetComponent<CameraFollowPlayer>();
-                if(cameraFollowPlayer != null)
+                if (cameraFollowPlayer != null)
                 {
                     cameraFollowPlayer.enabled = false;
                 }
@@ -246,6 +247,21 @@ public class BossScript : MonoBehaviour
         // Wait for sit animation to finish
         yield return new WaitForSeconds(1f);
 
+        // Teleport player and chest to the specified position
+        Vector3 teleportPosition = new Vector3(148f, -0.5f, 0f);
+        playerTransform.position = teleportPosition;
+        if (spawnedChest != null)
+        {
+            spawnedChest.transform.position = teleportPosition;
+
+            // Instantiate coin particle effect
+            GameObject coinParticleEffect = Instantiate(coinParticleEffectPrefab, spawnedChest.transform.position, Quaternion.identity);
+            coinParticleEffect.SetActive(true);
+        }
+
+        // Center the camera on the new position
+        mainCamera.transform.position = new Vector3(teleportPosition.x, teleportPosition.y, originalCameraPosition.z);
+
         winCanvas.SetActive(true);
 
         // Re-enable player movement
@@ -254,16 +270,9 @@ public class BossScript : MonoBehaviour
             playerMovement.enabled = true;
         }
 
-        /*CameraFollowPlayer cameraFollowEnabled = mainCamera.GetComponent<CameraFollowPlayer>();
-        if (cameraFollowEnabled != null)
-        {
-            cameraFollowEnabled.enabled = true;
-        }*/
-
-        mainCamera.transform.position = originalCameraPosition;
         mainCamera.orthographicSize = originalSize;
 
-        //trigger you win text here
+        // Trigger you win text here
 
         Destroy(gameObject);
     }

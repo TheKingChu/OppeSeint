@@ -7582,6 +7582,7 @@ MonoBehaviour:
   chestSpawnPoint: {fileID: 749786039}
   sequenceDuration: 7
   winCanvas: {fileID: 588354578}
+  coinParticleEffectPrefab: {fileID: 9215999866009812760, guid: ccd546289287b77499f6ecd98e531266, type: 3}
   projectileContainer: {fileID: 66433841}
   projectiles: []
   projectileSpeed: 2
