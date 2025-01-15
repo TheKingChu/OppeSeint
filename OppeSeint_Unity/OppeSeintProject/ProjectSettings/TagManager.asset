@@ -12,6 +12,7 @@ TagManager:
   - Activator
   - Boss
   - BossProjectiles
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -58,6 +58,8 @@ public class HierarchyColorEditor
                 return levelColor;
             case "Activator":
                 return activatorColor;
+            case "Coin":
+                return Color.yellow;
             default: 
                 return null;
         }
