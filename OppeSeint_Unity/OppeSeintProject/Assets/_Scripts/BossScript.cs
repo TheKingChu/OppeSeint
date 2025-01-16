@@ -245,7 +245,7 @@ public class BossScript : MonoBehaviour
         }
 
         // Wait for sit animation to finish
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.4f);
 
         // Teleport player and chest to the specified position
         Vector3 teleportPosition = new Vector3(148f, -0.5f, 0f);

@@ -36,6 +36,6 @@ public class CoinManager : MonoBehaviour
 
     private void UpdateCoinText()
     {
-        coinText.text = "" + coinCount;
+        coinText.text = coinCount + "x";
     }
 }
