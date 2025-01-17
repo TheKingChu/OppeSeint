@@ -47,6 +47,16 @@ public class BossScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResetBoss();
+    }
+
+    private void OnEnable()
+    {
+        ResetBoss();
+    }
+
+    private void ResetBoss()
+    {
         currentHealth = maxHealth;
 
         targetPoint = pointB;
@@ -248,7 +258,7 @@ public class BossScript : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
 
         // Teleport player and chest to the specified position
-        Vector3 teleportPosition = new Vector3(148f, -0.5f, 0f);
+        Vector3 teleportPosition = new Vector3(148f, -2.34f, 0f);
         playerTransform.position = teleportPosition;
         if (spawnedChest != null)
         {
