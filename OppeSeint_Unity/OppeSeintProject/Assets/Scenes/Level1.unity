@@ -3561,6 +3561,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healingEffect: {fileID: 5018834218929498617, guid: ffee3efd926d39b4bb4be1f7dbeb8e89, type: 3}
   effectDuration: 1
+  sortingLayerName: PS
+  sortingOrder: 10
 --- !u!114 &599848483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3575,6 +3577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupEffect: {fileID: 241596809363751458, guid: e2c7ba95267d3e342a959396364b12c5, type: 3}
   effectDuration: 1
+  sortingLayerName: PS
+  sortingOrder: 10
 --- !u!1 &610595344
 GameObject:
   m_ObjectHideFlags: 0
@@ -8473,6 +8477,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
       propertyPath: isMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}
+      propertyPath: dropChance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8498469556832052897, guid: 3b8dd3d071db28844aa983ceb6a8bb64, type: 3}

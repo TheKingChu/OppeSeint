@@ -21,7 +21,7 @@ public class Powerup : MonoBehaviour
 
                 if(powerupEffect != null)
                 {
-                    powerupEffect.PlayPowerupEffect(collision.transform.position);
+                    powerupEffect.PlayPowerupEffect(collision.transform.position, collision.transform);
                 }
             }
 

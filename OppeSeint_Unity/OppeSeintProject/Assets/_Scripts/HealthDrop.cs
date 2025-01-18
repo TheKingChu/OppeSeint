@@ -19,7 +19,7 @@ public class HealthDrop : MonoBehaviour
 
                 if(healingEffect != null)
                 {
-                    healingEffect.PlayHealingEffect(collision.transform.position);
+                    healingEffect.PlayHealingEffect(collision.transform.position, collision.transform);
                 }
                 Destroy(gameObject);
             }
