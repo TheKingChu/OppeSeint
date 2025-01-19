@@ -265,7 +265,8 @@ public class BossScript : MonoBehaviour
             spawnedChest.transform.position = teleportPosition;
 
             // Instantiate coin particle effect
-            GameObject coinParticleEffect = Instantiate(coinParticleEffectPrefab, spawnedChest.transform.position, Quaternion.identity);
+            Vector3 effectPos = new Vector3(spawnedChest.transform.position.x, spawnedChest.transform.position.y, -1);
+            GameObject coinParticleEffect = Instantiate(coinParticleEffectPrefab, effectPos, Quaternion.identity);
             coinParticleEffect.SetActive(true);
         }
 
