@@ -258,7 +258,7 @@ public class BossScript : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
 
         // Teleport player and chest to the specified position
-        Vector3 teleportPosition = new Vector3(148f, -2.34f, 0f);
+        Vector3 teleportPosition = new Vector3(148f, -4.4f, 0f);
         playerTransform.position = teleportPosition;
         if (spawnedChest != null)
         {
@@ -271,7 +271,8 @@ public class BossScript : MonoBehaviour
         }
 
         // Center the camera on the new position
-        mainCamera.transform.position = new Vector3(teleportPosition.x, teleportPosition.y, originalCameraPosition.z);
+        mainCamera.transform.position = new Vector3(teleportPosition.x, -3.11f, originalCameraPosition.z);
+        mainCamera.orthographicSize = 6.11f;
 
         winCanvas.SetActive(true);
 

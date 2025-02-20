@@ -6,7 +6,7 @@ using TMPro;
 public class WinScreenTextEffect : MonoBehaviour
 {
     public TMP_Text winCoinText;
-    public float incrementSpeed = 1000f;
+    public float incrementSpeed = 10000f;
     public float rainbowSpeed = 1f;
     public float waveFrequency = 2f;
     public float waveAmplitude = 5f;
@@ -38,7 +38,7 @@ public class WinScreenTextEffect : MonoBehaviour
             {
                 currentCoinCount = targetCoinCount;
             }
-            winCoinText.text = currentCoinCount.ToString();
+            winCoinText.text = FormatCoinCount(currentCoinCount);
             yield return null;
         }
     }
@@ -77,5 +77,10 @@ public class WinScreenTextEffect : MonoBehaviour
             textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
             winCoinText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
         }
+    }
+
+    private string FormatCoinCount(int coinCount)
+    {
+        return coinCount.ToString("N0").Replace(",", " ");
     }
 }
