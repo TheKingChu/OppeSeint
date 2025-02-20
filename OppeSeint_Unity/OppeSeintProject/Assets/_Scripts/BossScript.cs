@@ -43,11 +43,17 @@ public class BossScript : MonoBehaviour
     public List<BossProjectile> projectiles = new List<BossProjectile>();
     [SerializeField] private float projectileSpeed = 2f;
     private int currentProjectileIndex = 0;
+    private Dictionary<BossProjectile, Vector3> initialProjectilePos = new Dictionary<BossProjectile, Vector3>();
 
     // Start is called before the first frame update
     void Start()
     {
         ResetBoss();
+
+        foreach (BossProjectile projectile in projectiles)
+        {
+            projectile.bossScript = this;
+        }
     }
 
     private void OnEnable()
@@ -77,6 +83,13 @@ public class BossScript : MonoBehaviour
                 if (projectile != null)
                 {
                     projectiles.Add(projectile);
+                    projectile.bossScript = this;
+
+                    //Store the initial position of the projectile
+                    if (!initialProjectilePos.ContainsKey(projectile))
+                    {
+                        initialProjectilePos[projectile] = projectile.transform.position;
+                    }
                 }
             }
         }
@@ -157,6 +170,34 @@ public class BossScript : MonoBehaviour
         currentProjectileIndex = (currentProjectileIndex + 1) % projectiles.Count;
     }
 
+    public void CheckAllProjectilesDestroyed()
+    {
+        foreach(BossProjectile projectile in projectiles)
+        {
+            if (projectile.gameObject.activeSelf)
+            {
+                return; //if atleast one projectile is active, return
+            }
+        }
+
+        StartCoroutine(ResetAllProjectiles());
+    }
+
+    private IEnumerator ResetAllProjectiles()
+    {
+        yield return new WaitForSeconds(3f);
+        foreach (BossProjectile projectile in projectiles)
+        {
+            if(initialProjectilePos.ContainsKey(projectile))
+            {
+                projectile.transform.position = initialProjectilePos[projectile];
+            }
+            projectile.gameObject.SetActive(true);
+        }
+
+        Debug.Log("Projectiles reset!");
+    }
+
     private void UpdateHealthSprite()
     {
         if (currentHealth > maxHealth / 2)
@@ -178,6 +219,16 @@ public class BossScript : MonoBehaviour
         isSequencePlayer = true;
         SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
+
+        //destoy all projectiles
+        foreach (BossProjectile projectile in projectiles)
+        {
+            if(projectile != null)
+            {
+                Destroy(projectile.gameObject);
+            }
+        }
+        projectiles.Clear();
 
         // Slow motion
         Time.timeScale = slowMotion;

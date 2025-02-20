@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossProjectile : MonoBehaviour
 {
     public int damageToPlayer = 2;
+    public BossScript bossScript;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,15 +16,20 @@ public class BossProjectile : MonoBehaviour
             {
                 playerHealt.TakeDamage(damageToPlayer);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else if(collision.gameObject.CompareTag("Projectile"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+
+        if(bossScript != null)
+        {
+            bossScript.CheckAllProjectilesDestroyed();
         }
     }
 

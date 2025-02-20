@@ -2895,6 +2895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
+  bossScript: {fileID: 0}
 --- !u!50 &522724426
 Rigidbody2D:
   serializedVersion: 4
@@ -5350,6 +5351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
+  bossScript: {fileID: 0}
 --- !u!50 &705978647
 Rigidbody2D:
   serializedVersion: 4
@@ -6230,6 +6232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
+  bossScript: {fileID: 0}
 --- !u!50 &829058412
 Rigidbody2D:
   serializedVersion: 4
@@ -7787,6 +7790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
+  bossScript: {fileID: 0}
 --- !u!50 &1116754590
 Rigidbody2D:
   serializedVersion: 4
@@ -8165,7 +8169,6 @@ MonoBehaviour:
   winCanvas: {fileID: 588354578}
   coinParticleEffectPrefab: {fileID: 9215999866009812760, guid: ccd546289287b77499f6ecd98e531266, type: 3}
   projectileContainer: {fileID: 66433841}
-  projectilePrefab: {fileID: 7274051796491987770, guid: d7dc961afc103524fa1a33daa546d5be, type: 3}
   projectiles: []
   projectileSpeed: 2
 --- !u!50 &1125677570
@@ -66026,6 +66029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
+  bossScript: {fileID: 0}
 --- !u!50 &1892850983
 Rigidbody2D:
   serializedVersion: 4
@@ -67443,6 +67447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
+  bossScript: {fileID: 0}
 --- !u!50 &2079820041
 Rigidbody2D:
   serializedVersion: 4
