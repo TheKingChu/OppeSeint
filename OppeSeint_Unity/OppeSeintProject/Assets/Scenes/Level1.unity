@@ -2780,9 +2780,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 599848475}
+  boss: {fileID: 1125677567}
   pixelsPerUnit: 16
-  offset: {x: 5, y: 2, z: -10}
-  smoothSpeed: 0.125
+  offsetLeft: {x: 5, y: 2, z: -10}
+  offsetRight: {x: -5, y: 2, z: -10}
+  smoothSpeed: 0.01
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64927,6 +64929,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToActivate: {fileID: 330931485}
   levelCanvas: {fileID: 0}
+  cameraFollowPlayer: {fileID: 519420033}
+  player: {fileID: 599848475}
+  boss: {fileID: 0}
 --- !u!61 &1714776759
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65060,6 +65065,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToActivate: {fileID: 1830229322}
   levelCanvas: {fileID: 612250339}
+  cameraFollowPlayer: {fileID: 519420033}
+  player: {fileID: 599848475}
+  boss: {fileID: 1125677567}
 --- !u!61 &1805745665
 BoxCollider2D:
   m_ObjectHideFlags: 0
