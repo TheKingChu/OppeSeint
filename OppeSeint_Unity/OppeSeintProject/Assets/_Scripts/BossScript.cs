@@ -18,6 +18,7 @@ public class BossScript : MonoBehaviour
     public Sprite fullHealth;
     public Sprite halfHealth;
     public Sprite noHealth;
+    private Coroutine hitBlinkCoroutine;
 
     [Header("Damage")]
     [SerializeField] private int damageToPlayer = 2;
@@ -132,12 +133,39 @@ public class BossScript : MonoBehaviour
         currentHealth -= damage;
         UpdateHealthSprite();
 
+        if (hitBlinkCoroutine != null)
+        {
+            StopCoroutine(hitBlinkCoroutine);
+        }
+        hitBlinkCoroutine = StartCoroutine(BlinkEffect());
+
         ShootProjectile();
 
         if (currentHealth <= 0 && !isSequencePlayer)
         {
             StartCoroutine(Death());
         }
+    }
+
+    private IEnumerator BlinkEffect()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if(spriteRenderer == null)
+        {
+            yield break; // Exit if sprite renderer is not found
+        }
+
+        //blink
+        for(int i = 0; i < 1; i++)
+        {
+            spriteRenderer.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+
+            spriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        spriteRenderer.color = Color.white;
     }
 
     private void ShootProjectile()
