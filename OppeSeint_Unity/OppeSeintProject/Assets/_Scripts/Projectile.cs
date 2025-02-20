@@ -33,10 +33,11 @@ public class Projectile : MonoBehaviour
             }
 
             // Stop the projectile from pushing the boss
-            Rigidbody2D bossRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (bossRb != null && bossRb.bodyType == RigidbodyType2D.Dynamic)
+            Rigidbody2D projectileRb = GetComponent<Rigidbody2D>();
+            if(projectileRb != null)
             {
-                bossRb.velocity = Vector2.zero; // Nullify any movement caused by the collision
+                projectileRb.velocity = Vector2.zero;
+                projectileRb.bodyType = RigidbodyType2D.Kinematic;
             }
 
             Destroy(gameObject);
@@ -45,10 +46,11 @@ public class Projectile : MonoBehaviour
         {
             // Stop the projectiles from moving on collision
             Rigidbody2D bossProjectileRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (bossProjectileRb != null && bossProjectileRb.bodyType == RigidbodyType2D.Dynamic)
+            if (bossProjectileRb != null)
             {
                 bossProjectileRb.velocity = Vector2.zero; // Nullify any movement caused by the collision
             }
+            Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {
